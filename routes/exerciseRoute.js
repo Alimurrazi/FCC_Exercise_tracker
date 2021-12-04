@@ -7,9 +7,7 @@ const User= require("../models/User");
 router.post("/", async (req, res) => {
   try {
     const userId = req.params._id;
-    console.log('0...', userId);
     const user = await User.findOne({_id: userId});
-    console.log('1...', user);
 
     if (user) {
       const date = req.body.date ? new Date(req.body.date) : new Date();
@@ -20,9 +18,7 @@ router.post("/", async (req, res) => {
         duration: req.body.duration,
         date: date,
       };
-      console.log('2...', exercise);
       const exerciseResponse = await Exercise.create(exercise);
-      console.log('3....', exerciseResponse);
 
       if (exerciseResponse) {
         const response = {

@@ -32,8 +32,8 @@ router.get("/", async (req, res) => {
       const formatedExercises = exercises.map((exercise) => {
         const data = {};
         (data.description = exercise.description),
-          (data.duration = exercise.duration),
-          (data.date = exercise.date.toDateString());
+          (data.duration = Number(exercise.duration)),
+          (data.date = new Date(exercise.date).toDateString());
         return data;
       });
 
