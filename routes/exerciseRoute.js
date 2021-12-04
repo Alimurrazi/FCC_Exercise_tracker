@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
         const response = {
           username: user.username,
           description: exercise.description,
-          duration: exercise.duration,
+          duration: Number(exercise.duration),
           date: exercise.date.toDateString(),
           _id: userId,
         };
